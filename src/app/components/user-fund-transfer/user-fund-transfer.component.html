@@ -1,0 +1,91 @@
+<div class="text-center mt-3">
+    <h2>Fund Transfer</h2>
+</div>
+
+<div class="container align-center py-3 border">
+    <form>
+        <div class="text-center">
+            <div class="row mt-5 form-group">
+                <div class="col-md-6">
+                    <label for="">
+                        <h5>Choose Fund Transfer Type<span class="text-danger">*</span></h5>
+                    </label>
+                </div>
+                <div class="dropdown col-md-6">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        --Select--
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="">NEFT</a></li>
+                        <li><a class="dropdown-item" href="">IMPS</a></li>
+                        <li><a class="dropdown-item" href="">RTGS</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- From Account -->
+            <div class="row mt-5 form-group">
+                <div class="col-md-6">
+                    <label for="">
+                        <h5>From Account<span class="text-danger">*</span></h5>
+                    </label>
+                </div>
+                <div class="col-md-6 form-group">
+                    <input name="FromAccount" #FromAccount="ngModel" [(ngModel)]="fund.FromAccount" type="number"
+                        placeholder="Account Number" class="form-control" required min=1000000000 max=9999999999>
+                    <div *ngIf="!FromAccount?.valid && (FromAccount?.dirty || FromAccount?.touched)" class="error">
+                        <div *ngIf="FromAccount.errors?.required">
+                            <small class="text-danger">accountNumber required</small>
+                        </div>
+                        <div *ngIf="FromAccount.errors?.min || FromAccount.errors?.max">
+                            <small class="text-danger">Account Number must be 10 digit number</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- To Account -->
+            <div class="row mt-5 form-group">
+                <div class="col-md-6">
+                    <label for="">
+                        <h5>To Account<span class="text-danger">*</span></h5>
+                    </label>
+                </div>
+                <div class="col-md-6 form-group">
+                    <input name="ToAccount" #ToAccount="ngModel" [(ngModel)]="fund.ToAccount" type="number"
+                        placeholder="Account Number" class="form-control" required min=1000000000 max=9999999999>
+                    <div *ngIf="!ToAccount?.valid && (ToAccount?.dirty || ToAccount?.touched)" class="error">
+                        <div *ngIf="ToAccount.errors?.required">
+                            <small class="text-danger">accountNumber required</small>
+                        </div>
+                        <div *ngIf="ToAccount.errors?.min || ToAccount.errors?.max">
+                            <small class="text-danger">Account Number must be 10 digit number</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Amount-->
+            <div class="row mt-5 form-group">
+                <div class="col-md-6">
+                    <label for="">
+                        <h5>Amount<span class="text-danger">*</span></h5>
+                    </label>
+                </div>
+                <div class="col-md-6 form-group">
+                    <input name="Amount" #Amount="ngModel" [(ngModel)]="fund.Amount" type="number"
+                        placeholder="Enter Amount" class="form-control" required min=1000000000 max=9999999999>
+                    <div *ngIf="!Amount?.valid && (Amount?.dirty || Amount?.touched)" class="error">
+                        <div *ngIf="Amount.errors?.required">
+                            <small class="text-danger">accountNumber required</small>
+                        </div>
+                        <div *ngIf="Amount.errors?.min || Amount.errors?.max">
+                            <small class="text-danger">Account Number must be 10 digit number</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+</div>
